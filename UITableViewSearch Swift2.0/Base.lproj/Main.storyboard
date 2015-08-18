@@ -1,25 +1,108 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3z5-X3-CIr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Simple Search-->
+        <scene sceneID="bbi-2M-m8d">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController storyboardIdentifier="SimpleTableViewController" id="nsr-fa-ppB" customClass="SimpleTableViewController" customModule="UITableViewSearch_Swift2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uGM-5Q-DVJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="X2O-iU-JIY">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X2O-iU-JIY" id="Gyl-HD-0TS">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nsr-fa-ppB" id="Mce-Xp-P5v"/>
+                            <outlet property="delegate" destination="nsr-fa-ppB" id="F6X-C1-9k6"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Simple Search" image="simple_search" id="9pC-sN-0A9"/>
+                    <navigationItem key="navigationItem" title="Simple Search" id="9Wh-GV-PPW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6b1-zF-jLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="228" y="980"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AeC-qG-hIT">
+            <objects>
+                <navigationController id="3z5-X3-CIr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U5c-Eb-zgV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bdU-6f-g7c" kind="relationship" relationship="rootViewController" id="9Tw-y8-Ake"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFu-rl-2oV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1568" y="980"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fz3-PP-wa6">
+            <objects>
+                <tabBarController id="bdU-6f-g7c" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JfL-Oc-taU"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="R17-d2-7Hw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="nsr-fa-ppB" kind="relationship" relationship="viewControllers" id="Rba-Gr-HAs"/>
+                        <segue destination="b4y-ui-INB" kind="relationship" relationship="viewControllers" id="RCa-gE-5XE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPT-jJ-Zoz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-661" y="980"/>
+        </scene>
+        <!--Custom Cells-->
+        <scene sceneID="nI8-dA-Egx">
+            <objects>
+                <tableViewController id="b4y-ui-INB" customClass="CustomCellsTableViewController" customModule="UITableViewSearch_Swift2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="D5l-i0-BlQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="5OU-GV-Njj">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5OU-GV-Njj" id="iHm-tJ-2bd">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b4y-ui-INB" id="dIq-6Q-Ly8"/>
+                            <outlet property="delegate" destination="b4y-ui-INB" id="qac-xh-Xpj"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Custom Search" image="custom_search" id="j3x-PI-W3z"/>
+                    <navigationItem key="navigationItem" title="Custom Cells" id="1Es-I7-kR9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzO-a6-59U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="1770"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="custom_search" width="30" height="30"/>
+        <image name="simple_search" width="30" height="30"/>
+    </resources>
 </document>
